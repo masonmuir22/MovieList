@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "Enter a Movie";
+}
+
+@model MovieList.Models.Movie
+
+<form method="post" asp-action="MovieForm">
+    <div>
+        <label asp-for="Category">Category:</label>
+        <input asp-for="Category" />
+    </div>
+    <br />
+    <div>
+        <label asp-for="Title">Title:</label>
+        <input asp-for="Title" />
+    </div>
+    <br />
+    <div>
+        <label asp-for="Year">Year:</label>
+        <input asp-for="Year" />
+    </div>
+    <br />
+    <div>
+        <label asp-for="Director">Director:</label>
+        <input asp-for="Director" />
+    </div>
+    <br />
+    <div>
+        <label asp-for="Rating">Rating:</label>
+        <select asp-for="Rating">
+            <option>G</option>
+            <option>PG</option>
+            <option>PG-13</option>
+            <option>R</option>
+        </select>
+    </div>
+    <br />
+    <div>
+        <label asp-for="Edited">Edited:</label>
+        <input asp-for="Edited" type="radio" id="yes" name="yes" value="Yes">
+        <label for="yes">Yes</label>
+        <input asp-for="Edited" type="radio" id="nos" name="yes" value="No">
+        <label for="no">No</label><br>
+    </div>
+    <br />
+    <div>
+        <label asp-for="LentTo">Lent To:</label>
+        <input asp-for="LentTo" />
+    </div>
+    <br />
+    <div>
+        <label asp-for="Notes">Notes:</label>
+        <input asp-for="Notes" />
+    </div>
+    <br />
+
+    <button type="submit">Submit</button>
+
+    <div asp-validation-summary="All"></div>
+</form>

@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "List of Approved Movies";
+}
+
+@model IEnumerable<MovieList.Models.Movie>
+
+<div>
+    <h2>List of Movies</h2>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr><th>Category</th><th>Title</th><th>Year</th><th>Director</th><th>Rating</th><th>Edited</th><th>Lent To</th><th>Notes</th></tr>
+        </thead>
+
+        <tbody>
+            @foreach (MovieList.Models.Movie x in Model)
+            {
+            <tr>
+                <td>@x.Category</td>
+                <td>@x.Title</td>
+                <td>@x.Year</td>
+                <td>@x.Director</td>
+                <td>@x.Rating</td>
+                <td>@x.Edited</td>
+                <td>@x.LentTo</td>
+                <td>@x.Notes</td>
+                <td class="text-center">
+                    <form asp-action="Delete" method="post">
+                        <input type="hidden" name="MovieID"
+                               value="@x.MovieID" />
+                        <button type="submit" class="btn btn-sm btn-danger">
+                            Remove
+                        </button>
+                    </form>
+                </td>
+                <td class="text-center">
+                    <form asp-action="Edit" method="post">
+                        <input type="hidden" name ="MovieID"
+                               value="@x.MovieID"/>
+                        <button type="submit" class="btn btn-sm btn-danger">
+                            Edit
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            }
+        </tbody>
+
+    </table>
+</div>
